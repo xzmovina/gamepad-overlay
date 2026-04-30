@@ -1,18 +1,26 @@
-/* PS5 base /
+/* ===== BASE ===== /
 .controller.custom {
     position: relative;
+    overflow: hidden;
 }
 
-/ Clean Kurapika dual background /
+/ ===== ANIMATED AURA ===== /
+@keyframes auraFlow {
+    0% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(20deg); }
+    100% { filter: hue-rotate(0deg); }
+}
+
+/ ===== BACKGROUND (Kurapika dual) ===== /
 .controller.custom::before {
     content: "";
     position: absolute;
     inset: 0;
 
     background:
-        linear-gradient(90deg, rgba(0,0,80,0.85), rgba(0,0,0,0.95)),
-        url("https://i.imgur.com/qn7Z6YV.png"),  / LEFT Kurapika /
-        url("https://i.imgur.com/5cX1KXG.png");  / RIGHT Kurapika /
+        linear-gradient(90deg, rgba(0,0,90,0.85), rgba(0,0,0,0.95)),
+        url("https://i.imgur.com/3ZQ3ZQK.png"),   / LEFT calm /
+        url("https://i.imgur.com/Zk6TR5k.png");   / RIGHT red eyes /
 
     background-repeat: no-repeat;
     background-position:
@@ -25,28 +33,51 @@
         42%,
         42%;
 
-    z-index: -1;
+    z-index: -2;
+
+    animation: auraFlow 6s infinite ease-in-out;
 }
 
-/ Blue glow buttons /
-.button, .trigger, .bumper {
-    filter: drop-shadow(0 0 8px rgba(0,150,255,0.9));
-}
-
-/ Stick glow /
-.stick {
-    filter: drop-shadow(0 0 12px rgba(0,150,255,1));
-}
-
-/ Center text */
+/ ===== CHAINS OVERLAY ===== /
 .controller.custom::after {
     content: "TOMB";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 28px;
+    inset: 0;
+
+    background:
+        url("https://i.imgur.com/9yG6FQx.png"); / chain texture /
+
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
     font-weight: bold;
     color: #00aaff;
-    text-shadow: 0 0 15px rgba(0,150,255,1);
+    text-shadow:
+        0 0 10px #00aaff,
+        0 0 20px #0077ff,
+        0 0 35px rgba(0,150,255,1);
+
+    letter-spacing: 3px;
+    z-index: -1;
+}
+
+/ ===== BUTTON GLOW ===== /
+.button, .trigger, .bumper {
+    filter: drop-shadow(0 0 10px rgba(0,150,255,1));
+}
+
+/ ===== STICKS ===== /
+.stick {
+    filter: drop-shadow(0 0 14px rgba(0,150,255,1));
+}
+
+/ ===== RED EYES SIDE BOOST ===== */
+.button.pressed {
+    filter: drop-shadow(0 0 12px red);
 }
