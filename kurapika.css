@@ -3,29 +3,39 @@
     position: relative;
 }
 
-/ Kurapika blue/black dual background /
+/ Clean Kurapika dual background /
 .controller.custom::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: 
-        linear-gradient(90deg, rgba(0,0,60,0.85), rgba(0,0,0,0.95)),
-        url("https://i.imgur.com/3ZQ3ZQK.png"),
-        url("https://i.imgur.com/7YkXK7B.png");
+
+    background:
+        linear-gradient(90deg, rgba(0,0,80,0.85), rgba(0,0,0,0.95)),
+        url("https://i.imgur.com/qn7Z6YV.png"),  / LEFT Kurapika /
+        url("https://i.imgur.com/5cX1KXG.png");  / RIGHT Kurapika /
+
     background-repeat: no-repeat;
-    background-position: left center, left center, right center;
-    background-size: cover, 40%, 40%;
+    background-position:
+        center,
+        left center,
+        right center;
+
+    background-size:
+        cover,
+        42%,
+        42%;
+
     z-index: -1;
 }
 
 / Blue glow buttons /
 .button, .trigger, .bumper {
-    filter: drop-shadow(0 0 6px rgba(0,150,255,0.8));
+    filter: drop-shadow(0 0 8px rgba(0,150,255,0.9));
 }
 
 / Stick glow /
 .stick {
-    filter: drop-shadow(0 0 10px rgba(0,150,255,1));
+    filter: drop-shadow(0 0 12px rgba(0,150,255,1));
 }
 
 / Center text */
@@ -35,8 +45,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 26px;
+    font-size: 28px;
     font-weight: bold;
     color: #00aaff;
-    text-shadow: 0 0 12px rgba(0,150,255,0.9);
+    text-shadow: 0 0 15px rgba(0,150,255,1);
 }
